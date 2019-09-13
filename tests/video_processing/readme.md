@@ -6,6 +6,9 @@ Using the neural network YOLOv3 to recognize images on a `mp4` video.
 Download the YOLOv3
 https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
 
+Also, download any mp4 video so you can use it to be processed.
+> Please, do not commit the video files into the repo.
+
 ## Dependencies
 
 Install using `pip3 install <dependency>`
