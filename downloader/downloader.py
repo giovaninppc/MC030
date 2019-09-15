@@ -7,6 +7,6 @@ class PytubeDownloader():
         print(yt)
         streams = yt.streams
 
-        # Selec mp4 stream
+        # Select mp4 stream
         stream = streams.filter(mime_type = 'video/mp4').first()
-        stream.download('out/')
+        stream.download(filename = 'temp')

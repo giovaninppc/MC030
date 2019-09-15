@@ -30,4 +30,3 @@ class VideoProcessor():
 
         # Check for the information we can have processing the video
         print(video_path)
-        print(type(video_path))

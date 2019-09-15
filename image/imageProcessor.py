@@ -25,4 +25,3 @@ class ImageProcessor():
 
         # Check for the information we can have processing the video
         print(processedImage)
-        print(type(processedImage))
