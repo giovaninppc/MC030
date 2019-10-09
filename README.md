@@ -20,3 +20,7 @@
   - Ex: `python3 assets/example.mp4 -vi`
 - `-yt` download YouTube video as mp4 and process it
    -Ex: `python3 https://www.youtube.com/watch?v=gAeaR3Ggmok -yt`
+
+### Help
+
+Run `python3 main.py --help` for help
