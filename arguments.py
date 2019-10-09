@@ -11,6 +11,7 @@ def setupArguments() -> Arguments:
     argParser.add_argument('-im', '--image', help='Image processing from local file', action='store_true')
     argParser.add_argument('-vi', '--video', help='Video processing from local file', action='store_true')
     argParser.add_argument('-yt', '--youtube', help='Video processing from remote youtube video', action='store_true')
+    argParser.add_argument('-f', '--frameByFrame', help='Process video each frame individually', action='store_true')
 
     args = argParser.parse_args()
     file_path = args.file_path
