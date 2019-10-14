@@ -52,3 +52,4 @@ if args.video:
 elif args.youtube:
     downloadVideo(path)
     processVideo('temp.mp4')
+    os.remove('temp.mp4')
