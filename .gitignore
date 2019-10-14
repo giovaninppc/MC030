@@ -4,6 +4,7 @@
 # Assets that should not be committed
 *.mp4
 *.avi
+out/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
