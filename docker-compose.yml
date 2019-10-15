@@ -9,3 +9,9 @@ services:
     ports:
       - 80:80
       - 443:443
+
+  node_pytube:
+    image: tjunyamasaki/node_pytube
+    container_name: node_pytube
+    ports:
+      - 3000:3000
