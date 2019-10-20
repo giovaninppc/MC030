@@ -1,3 +1,5 @@
+node_modules
+
 # Neural network - file to large for GitHub
 *.h5
 
