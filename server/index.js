@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/name', callName);
+app.get('/video', callName);
 
 function callName(req, res) {
 
@@ -21,9 +21,11 @@ function callName(req, res) {
 
   // E.g : http://localhost:3000/name?firstname=Mike&lastname=Will 
   // so, first name = Mike and last name = Will 
-  var process = spawn('python', ["./healthcheck.py",
-    req.query.firstname,
-    req.query.lastname]);
+  var process = spawn('python', [
+    "../main.py",
+    "-yt",
+    "https://www.youtube.com/watch?v=" + req.query.videoId,
+  ]);
 
   // Takes stdout data from script which executed 
   // with arguments and send this data to res object 
