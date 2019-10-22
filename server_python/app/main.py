@@ -1,52 +1,16 @@
 from flask import Flask
-from video import *
-from image import *
-from downloader import *
-from arguments import *
-
-
-def downloadVideo(path):
-    pytube = PytubeDownloader()
-    pytube.downloadVideo(path)
-
-
-def processVideo(path, args):
-    if args.frameByFrame:
-        processVideoFrameByFrame(path)
-    else:
-        processEntireVideo(path)
-
-
-def processEntireVideo(path):
-    processor = VideoProcessor()
-    processor.detectObjectsFromVideo(path)
-
-
-def processVideoFrameByFrame(path):
-    detectedObjects = []
-    img_processor = ImageProcessor()
-    frame_extractor = FrameExtractor(path)
-    while frame_extractor.getNextFrame():
-        objects = img_processor.detectObjectsFromImage('frame.png')
-        detectedObjects += objects
-    dict = {}
-    for object in detectedObjects:
-        previousValue = dict.get(object) or 0
-        dict[object] = previousValue + 1
-    print(dict)
-
-
-def downloadVideo(path):
-    pytube = PytubeDownloader()
-    pytube.downloadVideo(path)
+from . import utils
+import os
 
 app = Flask(__name__)
 
 
-@app.route("/<url>")
-def hello():
-    return "Hello World from Flask in a uWSGI Nginx Docker container with \
-     Python 3.7 (from the example template)"
+@app.route("/<url>/<frame_by_frame_flag>")
+def hello(url, frame_by_frame_flag):
+    utils.downloadVideo(f'https://www.youtube.com/watch?v={url}')
+    utils.processVideo('temp.mp4', frame_by_frame_flag)
+    os.remove('temp.mp4')
+    return f"DOING YOUR SHIT at https://www.youtube.com/watch?v={url}"
 
 
 if __name__ == "__main__":
