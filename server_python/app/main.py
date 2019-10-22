@@ -1,5 +1,5 @@
 from flask import Flask
-from . import utils
+import utils
 import os
 
 app = Flask(__name__)
@@ -9,7 +9,6 @@ app = Flask(__name__)
 def hello(url, frame_by_frame_flag):
     utils.downloadVideo(f'https://www.youtube.com/watch?v={url}')
     utils.processVideo('temp.mp4', frame_by_frame_flag)
-    os.remove('temp.mp4')
     return f"DOING YOUR SHIT at https://www.youtube.com/watch?v={url}"
 
 
