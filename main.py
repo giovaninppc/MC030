@@ -53,5 +53,5 @@ if __name__ == "__main__":
 
     elif args.youtube:
         downloadVideo(path)
-        processVideo('temp.mp4')
+        processVideo('temp.mp4', args)
         os.remove('temp.mp4')
