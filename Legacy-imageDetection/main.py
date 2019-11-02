@@ -7,7 +7,7 @@ def processImage(path):
     img_processor = ImageProcessor()
     img_processor.detectObjectsFromImage(path)
 
-def processVideo(path):
+def processVideo(path, args):
     if args.frameByFrame:
         processVideoFrameByFrame(path)
     else:
@@ -38,18 +38,20 @@ def downloadVideo(path):
     pytube = PytubeDownloader()
     pytube.downloadVideo(path)
 
-# Run arguments
-configuration = setupArguments()
-path = configuration.path
-args = configuration.args
 
-if args.image:
-    processImage(path)
+if __name__ == "__main__":
+    # Run arguments
+    configuration = setupArguments()
+    path = configuration.path
+    args = configuration.args
 
-if args.video:
-    processVideo(path)
+    if args.image:
+        processImage(path)
 
-elif args.youtube:
-    downloadVideo(path)
-    processVideo('temp.mp4')
-    os.remove('temp.mp4')
+    if args.video:
+        processVideo(path, args)
+
+    elif args.youtube:
+        downloadVideo(path)
+        processVideo('temp.mp4', args)
+        os.remove('temp.mp4')
