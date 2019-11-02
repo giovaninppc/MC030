@@ -1,7 +1,7 @@
 from supportFiles import *
 from datetime import datetime
 
-logPath = 'log.txt'
+logPath = 'log.csv'
 downloadStart = 0.0
 downloadStop = 0.0
 convertStart = 0.0
