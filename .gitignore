@@ -7,6 +7,7 @@ package-lock.json
 # Assets that should not be committed
 *.mp4
 *.avi
+*.mp3
 out/*
 
 # Byte-compiled / optimized / DLL files
