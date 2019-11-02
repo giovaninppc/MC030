@@ -1,26 +1,37 @@
 # Remote video processing
-##### with Pytube and YOLOv3
+##### with moviepy
 
 ### Setup the environment
 
-- Download and install pytube
-`pip3 install pytube`
+- Download and install moviepy
+`pip3 install moviepy`
 
-- Download [additional dependencies for running the neural network](https://github.com/giovaninppc/MC030/tree/master/video)
+### Run the program from root folder
 
-- [Download YOLOv3](https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5) into `neural/` folder
-> The neural network file is too big for github files, there is a limit for 100Mb per file
+```bash
+$ python3 audioTrackExtractor/main.py [video path / url] -yt -d -t
+```
 
-### Run the program
-`python3 main.py <filepath / url> <flag>`
+- `-yt` if you are using a YouTube url
+- `-d` to print debug information onscreen
+- `-t` to log the time information on a log file (recommended)
 
-- `-im` process image with local file
-  - Ex: `python3 assets/image.png -im`
-- `-vi` process video with local file
-  - Ex: `python3 assets/example.mp4 -vi`
-- `-yt` download YouTube video as mp4 and process it
-   -Ex: `python3 https://www.youtube.com/watch?v=gAeaR3Ggmok -yt`
 
 ### Help
 
-Run `python3 main.py --help` for help
+Run `python3 audioTrackExtractor/main.py --help` for help
+
+
+### Local tests script
+- Run the audio conversion from a local path N times
+```
+$ python3 audioTrackExtractor/test_scripts/runNTimesLocalFile.py <N> <path>
+```
+it will log every execution on the log file.
+
+
+- Run the audio conversion from a remote video url N times
+```
+$ python3 audioTrackExtractor/test_scripts/runNTimesYouTubeVideo.py <N> <path>
+```
+it will log every execution on the log file.
