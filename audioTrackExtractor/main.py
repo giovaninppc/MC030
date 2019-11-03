@@ -45,5 +45,5 @@ if args.time:
     appendOnTextFile(logPath, log)
 
     if args.debug:
-        print('download start\tdownload stop\tconvert start\tconvert stop')
+        print('download start\tdownload stop\tduration\tconvert start\tconvert stop')
         print('{}\t{}\t{}\t{}\t{}'.format(str(downloadStart), str(downloadStop), str(videoDuration), str(convertStart), str(convertStop)))
