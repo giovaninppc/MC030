@@ -15,23 +15,16 @@ $ python3 audioTrackExtractor/main.py [video path / url] -yt -d -t
 - `-yt` if you are using a YouTube url
 - `-d` to print debug information onscreen
 - `-t` to log the time information on a log file (recommended)
-
+- `-o [output]` set output mp3 file path (default= `extractedAudio.mp3`)
+- `-l [log]` set log file path (default= `log.csv`)
 
 ### Help
 
 Run `python3 audioTrackExtractor/main.py --help` for help
 
+### Download files from YouTube
 
-### Local tests script
-- Run the audio conversion from a local path N times
+It may be useful to download videos into our remote servers
 ```
-$ python3 audioTrackExtractor/test_scripts/runNTimesLocalFile.py <N> <path>
+$ python3 audioTrackExtractor/downloader/downloader.py [URL] [outputPath]
 ```
-it will log every execution on the log file.
-
-
-- Run the audio conversion from a remote video url N times
-```
-$ python3 audioTrackExtractor/test_scripts/runNTimesYouTubeVideo.py <N> <path>
-```
-it will log every execution on the log file.
