@@ -1,6 +1,11 @@
 import sys
 import os
-from supportFiles import *
+from datetime import datetime
+
+def appendOnTextFile(path, text):
+    file = open(path, 'a+')
+    file.write(text)
+    file.close()
 
 print("Dowload time measure")
 print('Run ' + sys.argv[1] + ' times')
@@ -16,9 +21,13 @@ appendOnTextFile(logPath, "download start, download stop")
 for i in range(0, int(sys.argv[1])):
     print('Execution nº: ' + str(i))
     downloadStart = datetime.now().time()
-    cmd = 'wget students.ic.unicamp.br/ra177677/' + file
+    cmd = 'wget http://www.students.ic.unicamp.br/\~ra177677/' + file
+    
     os.system(cmd)
     downloadStop = datetime.now().time()
+
+    cmd = 'rm ' + file
+    os.system(cmd)
 
     log = '{}, {}\n'.format(str(downloadStart), str(downloadStop))
     appendOnTextFile(logPath, log)
