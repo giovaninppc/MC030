@@ -2,6 +2,10 @@ import sys
 import os
 import datetime
 
+# argv[1]: quantas vezes rodar
+# argv[2]: que arquivo quer baixar
+# argv[3]: nome do out
+
 def appendOnTextFile(path, text):
     file = open(path, 'a+')
     file.write(text)
@@ -14,7 +18,7 @@ def betweenTwoDates(a, b):
 	# Get the difference between datetimes (as timedelta)
 	dateTimeDifference = dateTimeA - dateTimeB
 
-print("Dowload time measure")
+print("Download time measure")
 print('Run ' + sys.argv[1] + ' times')
 
 file = sys.argv[2]
@@ -22,10 +26,10 @@ file = sys.argv[2]
 downloadStart = 0.0
 downloadStop = 0.0
 
-logPath = "wget_download_time.csv"
+logPath = sys.argv[3]
 
 cmd = 'rm ' + logPath
-os.system(cmd)	
+os.system(cmd)
 
 appendOnTextFile(logPath, "download start, download stop\n")
 
