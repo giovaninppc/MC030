@@ -36,7 +36,7 @@ appendOnTextFile(logPath, "download start, download stop\n")
 for i in range(0, int(sys.argv[1])):
     print('Execution nº: ' + str(i))
     downloadStart = datetime.datetime.now()
-    cmd = 'wget http://www.students.ic.unicamp.br/\~ra177677/' + file
+    cmd = 'wget http://www.students.ic.unicamp.br/\~ra168609/' + file
     os.system(cmd)
     downloadStop = datetime.datetime.now()
     duration = downloadStop - downloadStart
