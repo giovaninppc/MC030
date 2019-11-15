@@ -6,6 +6,8 @@ import datetime
 # argv[2]: que arquivo quer baixar
 # argv[3]: nome do out
 
+micro_seconds_correction = 10**(-6)
+
 def appendOnTextFile(path, text):
     file = open(path, 'a+')
     file.write(text)
@@ -40,7 +42,7 @@ for i in range(0, int(sys.argv[1])):
     os.system(cmd)
     downloadStop = datetime.datetime.now()
     duration = downloadStop - downloadStart
-    duration = duration.microseconds
+    duration = duration.seconds + (duration.microseconds)*micro_seconds_correction
 
     cmd = 'rm ' + file
     os.system(cmd)
