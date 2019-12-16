@@ -1,7 +1,7 @@
 flask
 uwsgi
 pytube
-tensorflow==1.15rc2
+tensorflow==1.15.0
 numpy
 scipy
 opencv-python
